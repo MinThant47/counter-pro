@@ -1,9 +1,13 @@
 import "./App.css";
+import BirthdayContextProvider from "./context/birthdayPeople";
+import Home from "./component/Home";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello Birthdays</h1>
+      <BirthdayContextProvider>
+        <Home />
+      </BirthdayContextProvider>
     </div>
   );
 }
