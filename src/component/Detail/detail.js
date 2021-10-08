@@ -1,14 +1,35 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { client } from "../../client";
 import "./detail.css";
 import letter from "../../Assets/bd letter.jpg";
 import footer from "../../Assets/footer.jpg";
-import Confetti from "react-confetti";
+import crowd from "../../Assets/crowd saying hb.mp3";
+import BDSong from "../../Assets/birthday song.mp3";
+import { confetti } from "./confetti";
 
 const Detail = () => {
   const { name } = useParams();
   const [people, setPeople] = useState([]);
+
+  const crowdRef = useRef();
+  const crowdRef2 = useRef();
+  const bdRef = useRef();
+
+  const start = () => {
+    setTimeout(() => {
+      confetti.start();
+    }, 200);
+  };
+
+  const stop = () => {
+    setTimeout(() => {
+      confetti.stop();
+    }, 10000);
+  };
+
+  start();
+  stop();
 
   useEffect(() => {
     client
@@ -21,8 +42,31 @@ const Detail = () => {
       });
   }, [name]);
 
+  useEffect(() => {
+    crowdRef.current.play();
+
+    setTimeout(function () {
+      crowdRef2.current.play();
+    }, 3000);
+
+    setTimeout(function () {
+      bdRef.current.play();
+    }, 3000);
+  });
+
   return (
     <>
+      <audio ref={crowdRef} id="birthday-crowd" controls>
+        <source src={crowd} type="audio/mp3" />
+      </audio>
+
+      <audio ref={crowdRef2} controls>
+        <source src={crowd} type="audio/mp3" />
+      </audio>
+
+      <audio ref={bdRef} controls loop>
+        <source src={BDSong} type="audio/mp3" />
+      </audio>
       {people.length !== 0 && (
         <div>
           <img
@@ -45,11 +89,10 @@ const Detail = () => {
           </div>
 
           <div className="bd-photo-content">
-            <Confetti className="my-canvas" />
             <p className="text">
               <strong>ချစ်စရာ အကောင်းဆုံး</strong> သူငယ်ချင်းလေးအတွက် <br />
               ပုံလှလှလေးတွေနဲ့ wish လိုက်တယ်။
-              <strong>ကြည်နူးခံစားနိုင်ပါစေ။</strong>
+              <strong> ကြည်နူးခံစားနိုင်ပါစေ။</strong>
             </p>
             <div className="decoration">
               <div className="block yellow"></div>
@@ -64,7 +107,7 @@ const Detail = () => {
                 <img src={letter} alt="" />
               </div>
               <div className="details">
-                <p>{people[0].fields.birthdayWish}</p>
+                <p id="wish">{people[0].fields.birthdayWish}</p>
               </div>
             </div>
 

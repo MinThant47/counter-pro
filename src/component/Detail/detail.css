@@ -150,8 +150,6 @@
 }
 
 .my-canvas {
-  width: 100%;
-  height: 20%;
   position: fixed;
   top: 0;
   left: 0;
@@ -168,7 +166,7 @@ audio {
   width: 390px;
   height: 500px;
   margin: 20px 0;
-  background: #fff;
+  background: white;
   transform-style: preserve-3d;
   transform: perspective(2000px);
   transition: 1s;
@@ -207,12 +205,19 @@ audio {
 }
 
 .card .details p {
+  height: 100%;
+  background: white;
   position: absolute;
   top: 0;
   left: 0;
   box-sizing: border-box;
   padding: 20px;
   font-size: 1rem;
+}
+
+#wish {
+  white-space: pre-wrap;
+  line-height: 1.4;
 }
 
 @media only screen and (max-width: 1000px) {

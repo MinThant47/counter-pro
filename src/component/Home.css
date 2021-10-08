@@ -1,0 +1,84 @@
+.home-body {
+  background-color: #111111;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 1rem;
+}
+
+.home {
+  max-width: 1000px;
+  margin: 5rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.home input {
+  width: 50%;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+
+.home .bd-button {
+  font-weight: bold;
+  color: white;
+  background-color: var(--pink-dark);
+  padding: 1rem 4rem;
+  border: 2px solid var(--pink-dark);
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.home .bd-button:hover {
+  background-color: transparent;
+  color: var(--pink-dark);
+  transition: all 0.3s;
+}
+
+.bd-people {
+  margin: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.home h3 {
+  text-align: center;
+  color: #fff;
+}
+
+.bd-people .bd-card {
+  padding: 1rem 2rem;
+  border: 2px solid var(--pink-dark);
+  border-radius: 10px;
+}
+
+.bd-people a {
+  background-color: transparent;
+  color: var(--pink-dark);
+  transition: all 0.3s;
+}
+
+.bd-people a:hover {
+  color: white;
+  background-color: var(--pink-dark);
+}
+
+@media only screen and(max-width: 760px) {
+  .home input {
+    width: 70%;
+  }
+}
+
+@media only screen and(max-width: 500px) {
+  .home input {
+    width: 100%;
+  }
+}
