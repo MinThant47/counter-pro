@@ -1,14 +1,26 @@
 import "./App.css";
-import BirthdayContextProvider from "./context/birthdayPeople";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./component/Home";
+import Counter from "./component/Counter/counter";
+import Detail from "./component/Detail/detail";
 
 function App() {
   return (
-    <div className="App">
-      <BirthdayContextProvider>
-        <Home />
-      </BirthdayContextProvider>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+
+        <Route path="/counter/:name">
+          <Counter />
+        </Route>
+
+        <Route path="/detail/:name">
+          <Detail />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

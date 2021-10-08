@@ -1,5 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap");
+
+:root {
+  --pink-light: #f7c7dd;
+  --pink-dark: #ee6ba8;
+  --pink: #ff86c8;
+  --yellow: #ffcc66;
+  --blue: #009ff5;
+  --black: #5a5a5a;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-family: "Comfortaa";
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Bootstrap ကြောင့်ဖြစ်တာ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Utility Classes */
+
+.text {
+  color: var(--black);
+}
+
+.button {
+  font-weight: bold;
+  padding: 2rem 3rem;
+  border: none;
+  outline: none;
+  background-color: var(--pink-dark);
+  color: white;
+  border-radius: 50px;
+  transition: transform 0.4s; /* Animation */
+}
+
+.button:hover {
+  background-color: var(--pink);
+  transform: scale(1.2);
+  color: white;
 }

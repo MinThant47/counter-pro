@@ -1,14 +1,29 @@
-import { useContext } from "react";
-import { BirthdayContext } from "../context/birthdayPeople";
+import { useEffect, useState } from "react";
+import { client } from "../client";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const { people } = useContext(BirthdayContext);
-
+  const [people, setPeople] = useState([]);
+  useEffect(() => {
+    client
+      .getEntries({ content_type: "birthdayInfo" })
+      .then((res) => {
+        console.log(res.items);
+        setPeople(res.items);
+      })
+      .catch((e) => {
+        console.log(e.message);
+      });
+  }, []);
   return (
     <div>
       {people &&
         people.map((bd) => {
-          return <h3>{bd.fields.name}</h3>;
+          return (
+            <div key={bd.sys.id}>
+              <Link to={`/counter/${bd.fields.name}`}>{bd.fields.name}</Link>
+            </div>
+          );
         })}
     </div>
   );

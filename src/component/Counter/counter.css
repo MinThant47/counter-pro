@@ -1,0 +1,151 @@
+.waiting {
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.waiting .waiting-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.waiting .waiting-img img {
+  height: 450px;
+}
+
+@media screen and (max-width: 900px) {
+  .waiting .waiting-img img {
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .waiting .waiting-img img {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .waiting .waiting-img img {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .waiting .waiting-img {
+    flex-direction: column;
+  }
+}
+
+/* Counter */
+
+.counter {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  margin: 5rem 0;
+  padding: 4rem 0;
+  background-color: var(--pink-light);
+}
+
+.counter h1 {
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+}
+
+.counter p {
+  font-size: 1.1rem;
+}
+
+.counter h1,
+.counter p {
+  text-align: center;
+  font-weight: bold;
+}
+
+.timer {
+  margin: 2rem 0;
+  padding: 2rem 0;
+  background-color: var(--pink-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+  line-height: 1.5;
+  flex-wrap: wrap;
+}
+
+.timer h1,
+.timer p {
+  color: white;
+}
+
+.timer h1 {
+  font-size: 3rem;
+}
+
+.timer p {
+  font-size: 0.8rem;
+}
+
+.comeback {
+  margin: 3rem;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 900px) {
+  .timer {
+    gap: 5rem;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .timer h1 {
+    font-size: 2rem;
+  }
+
+  .timer p {
+    font-size: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .counter h1 {
+    font-size: 1.2rem;
+  }
+
+  .counter p {
+    font-size: 0.8rem;
+  }
+}
+
+/* congrazz */
+
+.congra {
+  display: none;
+}
+
+.congra.open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.content h1,
+.content p {
+  text-align: left;
+}
+
+@media screen and (max-width: 660px) {
+  .congra {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .content h1,
+  .content p {
+    text-align: center;
+  }
+}
