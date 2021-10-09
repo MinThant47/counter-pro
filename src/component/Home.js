@@ -12,7 +12,6 @@ const Home = () => {
     client
       .getEntries({ content_type: "birthdayInfo" })
       .then((res) => {
-        console.log(res.items);
         setPeople(res.items);
       })
       .catch((e) => {
@@ -49,7 +48,7 @@ const Home = () => {
           </div>
         ) : (
           <>
-            <input ref={pwRef} type="password" placeholder="Enter password" />
+            <input ref={pwRef} type="text" placeholder="Enter password" />
             <button
               onClick={(e) => {
                 handleClick(e, pwRef.current.value);

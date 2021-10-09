@@ -67,11 +67,9 @@ const Counter = () => {
       });
 
       const stopCounter = () => {
-        console.log("Stopping");
         clearInterval(birthdayCounter);
       };
 
-      console.log("useEffect Running");
       // End of Counter Function
 
       const today = new Date().getTime();

@@ -22,14 +22,7 @@ const Detail = () => {
     }, 200);
   };
 
-  const stop = () => {
-    setTimeout(() => {
-      confetti.stop();
-    }, 10000);
-  };
-
   start();
-  stop();
 
   useEffect(() => {
     client
