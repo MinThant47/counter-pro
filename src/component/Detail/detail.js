@@ -83,9 +83,7 @@ const Detail = () => {
 
           <div className="bd-photo-content">
             <p className="text">
-              <strong>ချစ်စရာ အကောင်းဆုံး</strong> သူငယ်ချင်းလေးအတွက် <br />
-              ပုံလှလှလေးတွေနဲ့ wish လိုက်တယ်။
-              <strong> ကြည်နူးခံစားနိုင်ပါစေ။</strong>
+            {people[0].fields.birthdayPhotoNote}
             </p>
             <div className="decoration">
               <div className="block yellow"></div>

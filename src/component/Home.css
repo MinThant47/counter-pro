@@ -16,8 +16,17 @@
   gap: 2rem;
 }
 
-.home input {
+.home form {
   width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.home form input {
+  width: 100%;
   padding: 0.5rem 1rem;
   border: none;
   outline: none;

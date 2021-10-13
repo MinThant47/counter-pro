@@ -19,9 +19,11 @@ const Home = () => {
       });
   }, []);
 
-  const handleClick = (e, pw) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    pw === process.env.REACT_APP_PASSWORD ? setShow(true) : setShow(false);
+    pwRef.current.value === process.env.REACT_APP_PASSWORD
+      ? setShow(true)
+      : setShow(false);
   };
 
   return (
@@ -48,15 +50,12 @@ const Home = () => {
           </div>
         ) : (
           <>
-            <input ref={pwRef} type="text" placeholder="Enter password" />
-            <button
-              onClick={(e) => {
-                handleClick(e, pwRef.current.value);
-              }}
-              className="bd-button"
-            >
-              Enter
-            </button>
+            <form onSubmit={handleSubmit}>
+              <input ref={pwRef} type="password" placeholder="Enter password" />
+              <button type="submit" className="bd-button">
+                Enter
+              </button>
+            </form>
           </>
         )}
       </div>
