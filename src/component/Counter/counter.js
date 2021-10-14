@@ -1,12 +1,90 @@
-import Waiting from "../../Assets/Waiting.png";
-import Clock from "../../Assets/Clock.png";
+import Waiting from "../../Assets/Waiting.svg";
+import Clock from "../../Assets/Clock.svg";
 import "./counter.css";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { client } from "../../client";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { HiArrowSmLeft } from "react-icons/hi";
+import { HiArrowSmRight } from "react-icons/hi";
+// import { useInView } from "react-intersection-observer";
+
+const waitingVariants = {
+  hidden: {
+    y: "-100vh",
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      type: "spring",
+      ease: "easeInOut",
+    },
+  },
+};
+
+const clockVariants = {
+  hidden: {
+    y: "-100vh",
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      type: "spring",
+      ease: "easeInOut",
+    },
+  },
+};
+
+const counterVariants = {
+  hidden: {
+    x: "100vw",
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      type: "spring",
+      ease: "easeInOut",
+    },
+  },
+};
+
+const numVariants = {
+  visible: {
+    rotate: [3, -3],
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut",
+      yoyo: Infinity,
+    },
+  },
+};
+
+const hoverVariants = {
+  hover: {
+    scale: 1.1,
+    textShadow: "0px 0px 5px rgba(255,255,255)",
+    boxShadow: "0px 0px 5px rgba(255,255,255)",
+    transition: {
+      duration: 0.3,
+      yoyo: Infinity,
+    },
+  },
+};
 
 const Counter = () => {
+  // const { ref, inView } = useInView({ threshold: 0.1 });
+  // const controls = useAnimation();
+
   const { name } = useParams();
   const [people, setPeople] = useState([]);
   const [open, setOpen] = useState(false);
@@ -15,6 +93,14 @@ const Counter = () => {
   const [finalhour, setHour] = useState("N/A");
   const [finalminute, setMinute] = useState("N/A");
   const [finalsecond, setSecond] = useState("N/A");
+
+  // useEffect(() => {
+  //   if (inView) {
+  //     controls.start("visible");
+  //   } else {
+  //     controls.start("hidden");
+  //   }
+  // }, [controls, inView]);
 
   useEffect(() => {
     client
@@ -92,49 +178,84 @@ const Counter = () => {
     <>
       <section className="waiting">
         <div className="waiting-img">
-          <img clas="img-fluid" src={Waiting} alt="" />
-          <img className="img-fluid" src={Clock} alt="" />
+          <motion.img
+            variants={waitingVariants}
+            initial="hidden"
+            animate="visible"
+            className="img-fluid"
+            src={Waiting}
+            alt=""
+          />
+          <motion.img
+            variants={clockVariants}
+            initial="hidden"
+            animate="visible"
+            className="img-fluid"
+            src={Clock}
+            alt=""
+          />
         </div>
       </section>
 
-      <section className="counter">
-        <h1 className="text">Countdown</h1>
-        <p className="text">အချိန်တွေကို စတင်ရေတွက်နေပါပြီ...</p>
+      <motion.section
+        // ref={ref}
+        variants={counterVariants}
+        initial="hidden"
+        animate="visible"
+        className="counter"
+      >
+        <motion.h1 className="text-white">Countdown</motion.h1>
+        <motion.p className="text-white">
+          အချိန်တွေကို စတင်ရေတွက်နေပါပြီ...
+        </motion.p>
         <div className="timer">
           <div className="time">
-            <h1 id="day">{finalday}</h1>
+            <motion.h1 variants={numVariants} animate="visible">
+              {finalday}
+            </motion.h1>
             <p>DAYS</p>
           </div>
           <div className="time">
-            <h1 id="hour">{finalhour}</h1>
+            <motion.h1 variants={numVariants} animate="visible">
+              {finalhour}
+            </motion.h1>
             <p>HOURS</p>
           </div>
           <div className="time">
-            <h1 id="minute">{finalminute}</h1>
+            <motion.h1 variants={numVariants} animate="visible">
+              {finalminute}
+            </motion.h1>
             <p>MINUTES</p>
           </div>
           <div className="time">
-            <h1 id="second">{finalsecond}</h1>
+            <motion.h1 variants={numVariants} animate="visible">
+              {finalsecond}
+            </motion.h1>
             <p>SECONDS</p>
           </div>
         </div>
-        <p className="text comeback">
+        <p className="text-white comeback">
           အချိန်ပြည့်သွားရင် ပြန်လာခဲ့နော်။ ဒီက စောင့်နေမယ်
         </p>
 
-        <div className={`congra ${open ? "open" : ""}`}>
+        <div className={`congra${open ? "open" : ""}`}>
           {people.length !== 0 && (
-            <Link className="button" to={`/detail/${people[0].fields.name}`}>
-              ကဲ သွားလိုက်ရအောင်
-            </Link>
+            <>
+              <HiArrowSmRight className="counter-icons text-white" />
+              <Link to={`/detail/${people[0].fields.name}`}>
+                <motion.button
+                  variants={hoverVariants}
+                  whileHover="hover"
+                  className="button-outline"
+                >
+                  ကဲ သွားလိုက်ရအောင်
+                </motion.button>
+              </Link>
+              <HiArrowSmLeft className="counter-icons text-white" />
+            </>
           )}
-          <div className="content">
-            <h1 className="text">Yayyyyyy</h1>
-            <p className="text">အချိန်ပြည့်ဖို့ စောင့်နေရတာ မောနေပြီလား</p>
-            <p className="text">အခုပဲ ဝင်ကြည့်လိုက်တော့နော်</p>
-          </div>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

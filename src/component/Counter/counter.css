@@ -46,7 +46,7 @@
   left: 0%;
   margin: 5rem 0;
   padding: 4rem 0;
-  background-color: var(--pink-light);
+  background-color: var(--purple-light);
 }
 
 .counter h1 {
@@ -67,7 +67,7 @@
 .timer {
   margin: 2rem 0;
   padding: 2rem 0;
-  background-color: var(--pink-dark);
+  background-color: var(--purple-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,4 +148,8 @@
   .content p {
     text-align: center;
   }
+}
+
+.counter-icons {
+  font-size: 2rem;
 }

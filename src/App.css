@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap");
 
 :root {
-  --pink-light: #f7c7dd;
-  --pink-dark: #ee6ba8;
-  --pink: #ff86c8;
-  --yellow: #ffcc66;
-  --blue: #009ff5;
+  --pink-light: #ed5fa1;
+  --pink-dark: #ec2a7a;
+  --purple-light: #835ae3;
+  --purple-dark: #694dc1;
   --black: #5a5a5a;
 }
 
@@ -42,19 +41,13 @@ p {
   color: var(--black);
 }
 
-.button {
+.button-outline {
   font-weight: bold;
   padding: 2rem 3rem;
-  border: none;
   outline: none;
-  background-color: var(--pink-dark);
+  background-color: transparent;
+  border: 1px solid white;
   color: white;
   border-radius: 50px;
   transition: transform 0.4s; /* Animation */
-}
-
-.button:hover {
-  background-color: var(--pink);
-  transform: scale(1.2);
-  color: white;
 }
