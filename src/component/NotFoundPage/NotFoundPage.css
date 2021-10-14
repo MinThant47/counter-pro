@@ -17,7 +17,7 @@
   text-align: center;
   font-size: 10rem;
   font-weight: bolder;
-  color: var(--pink-dark);
+  color: var(--purple-light);
   margin: 0 1rem;
 }
 
@@ -43,32 +43,32 @@
   margin: 0 2rem;
   padding: 1rem 2rem;
   color: #fff;
-  background-color: var(--pink-dark);
+  background-color: var(--purple-light);
   border-radius: 10px;
-  border: 2px solid var(--pink-dark);
+  border: 2px solid var(--purple-light);
   transition: all 0.3s;
   font-weight: bold;
 }
 
 .not-found .primary-button:hover {
-  color: var(--pink-dark);
+  color: var(--purple-light);
   background-color: transparent;
 }
 
 .not-found .secondary-button {
   margin: 0 2rem;
   padding: 1rem 2rem;
-  color: var(--pink-dark);
+  color: var(--purple-light);
   font-weight: bold;
   background-color: transparent;
   border-radius: 10px;
-  border: 2px solid var(--pink-dark);
+  border: 2px solid var(--purple-light);
   transition: all 0.3s;
 }
 
 .not-found .secondary-button:hover {
   color: #fff;
-  background-color: var(--pink-dark);
+  background-color: var(--purple-light);
 }
 
 @media only screen and (max-width: 500px) {

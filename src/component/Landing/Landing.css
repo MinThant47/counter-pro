@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Nautilus"; /*a name to be used later*/
+  src: url("../../Assets/Nautilus.otf"); /*URL to font*/
+}
+
+.landing {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  margin-top: 150px;
+}
+
+.landing-content h1 {
+  font-family: "Nautilus";
+}
+
+#nickname {
+  font-size: 4.5rem;
+  color: var(--pink-dark);
+}
+
+#years {
+  font-size: 4rem;
+  color: var(--purple-light);
+}
+
+#birthday {
+  color: var(--purple-light);
+  font-size: 4.5rem;
+  font-weight: bolder;
+}
+
+#bd-short {
+  color: var(--purple-light);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.button-primary {
+  margin-top: 1rem;
+  font-weight: medium;
+  color: white;
+  padding: 1rem 3.5rem;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  text-transform: uppercase;
+  background-color: var(--pink-dark);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+#cake {
+  position: absolute;
+  bottom: -10%;
+  left: 3%;
+  height: 450px;
+}
+
+#celebrate {
+  position: absolute;
+  top: 10%;
+  left: 12%;
+  height: 120px;
+}
+
+#gift {
+  position: absolute;
+  bottom: -5%;
+  right: 8%;
+  height: 300px;
+}
+
+#triangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 200px;
+}

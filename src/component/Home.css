@@ -36,16 +36,16 @@
 .home .bd-button {
   font-weight: bold;
   color: white;
-  background-color: var(--pink-dark);
+  background-color: var(--purple-light);
   padding: 1rem 4rem;
-  border: 2px solid var(--pink-dark);
+  border: 2px solid var(--purple-light);
   border-radius: 10px;
   transition: all 0.3s;
 }
 
 .home .bd-button:hover {
   background-color: transparent;
-  color: var(--pink-dark);
+  color: var(--purple-light);
   transition: all 0.3s;
 }
 
@@ -65,19 +65,19 @@
 
 .bd-people .bd-card {
   padding: 1rem 2rem;
-  border: 2px solid var(--pink-dark);
+  border: 2px solid var(--purple-light);
   border-radius: 10px;
 }
 
 .bd-people a {
   background-color: transparent;
-  color: var(--pink-dark);
+  color: var(--purple-light);
   transition: all 0.3s;
 }
 
 .bd-people a:hover {
   color: white;
-  background-color: var(--pink-dark);
+  background-color: var(--purple-light);
 }
 
 @media only screen and(max-width: 760px) {

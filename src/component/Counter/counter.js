@@ -8,7 +8,6 @@ import { client } from "../../client";
 import { motion } from "framer-motion";
 import { HiArrowSmLeft } from "react-icons/hi";
 import { HiArrowSmRight } from "react-icons/hi";
-// import { useInView } from "react-intersection-observer";
 
 const waitingVariants = {
   hidden: {
@@ -22,6 +21,13 @@ const waitingVariants = {
       duration: 0.8,
       type: "spring",
       ease: "easeInOut",
+    },
+  },
+  exit: {
+    x: "-100vw",
+    sclae: 0,
+    transition: {
+      duration: 0.3,
     },
   },
 };
@@ -40,6 +46,13 @@ const clockVariants = {
       ease: "easeInOut",
     },
   },
+  exit: {
+    x: "-100vw",
+    sclae: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
 };
 
 const counterVariants = {
@@ -54,6 +67,13 @@ const counterVariants = {
       duration: 1,
       type: "spring",
       ease: "easeInOut",
+    },
+  },
+  exit: {
+    x: "-100vw",
+    sclae: 0,
+    transition: {
+      duration: 0.3,
     },
   },
 };
@@ -81,10 +101,7 @@ const hoverVariants = {
   },
 };
 
-const Counter = () => {
-  // const { ref, inView } = useInView({ threshold: 0.1 });
-  // const controls = useAnimation();
-
+const Counter = ({ setPerson }) => {
   const { name } = useParams();
   const [people, setPeople] = useState([]);
   const [open, setOpen] = useState(false);
@@ -94,24 +111,17 @@ const Counter = () => {
   const [finalminute, setMinute] = useState("N/A");
   const [finalsecond, setSecond] = useState("N/A");
 
-  // useEffect(() => {
-  //   if (inView) {
-  //     controls.start("visible");
-  //   } else {
-  //     controls.start("hidden");
-  //   }
-  // }, [controls, inView]);
-
   useEffect(() => {
     client
       .getEntries({ content_type: "birthdayInfo", "fields.name": name })
       .then((res) => {
         setPeople(res.items);
+        setPerson(res.items);
       })
       .catch((e) => {
         console.log(e.message);
       });
-  }, [name]);
+  }, [name, setPerson]);
 
   useEffect(() => {
     if (people.length !== 0) {
@@ -183,6 +193,7 @@ const Counter = () => {
             initial="hidden"
             animate="visible"
             className="img-fluid"
+            exit="exit"
             src={Waiting}
             alt=""
           />
@@ -190,6 +201,7 @@ const Counter = () => {
             variants={clockVariants}
             initial="hidden"
             animate="visible"
+            exit="exit"
             className="img-fluid"
             src={Clock}
             alt=""
@@ -203,6 +215,7 @@ const Counter = () => {
         initial="hidden"
         animate="visible"
         className="counter"
+        exit="exit"
       >
         <motion.h1 className="text-white">Countdown</motion.h1>
         <motion.p className="text-white">
@@ -238,11 +251,11 @@ const Counter = () => {
           အချိန်ပြည့်သွားရင် ပြန်လာခဲ့နော်။ ဒီက စောင့်နေမယ်
         </p>
 
-        <div className={`congra${open ? "open" : ""}`}>
+        <div className={`congra ${!open ? "open" : ""}`}>
           {people.length !== 0 && (
             <>
               <HiArrowSmRight className="counter-icons text-white" />
-              <Link to={`/detail/${people[0].fields.name}`}>
+              <Link to={`/landing/${people[0].fields.name}`}>
                 <motion.button
                   variants={hoverVariants}
                   whileHover="hover"
