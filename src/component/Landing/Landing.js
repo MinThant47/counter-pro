@@ -1,9 +1,7 @@
-import "Landing.css";
+import "./Landing.css";
 
 const Landing = () => {
-  return <div className="landing">
-
-  </div>;
+  return <div className="landing"></div>;
 };
 
 export default Landing;
