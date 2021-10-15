@@ -1,0 +1,40 @@
+.last {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.last .last-img img {
+  margin-top: 60px;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#happyWord {
+  color: var(--purple-dark);
+  font-size: 4.5rem;
+  text-align: center;
+}
+
+#birthdayWord {
+  color: var(--purple-light);
+  font-size: 3rem;
+  font-family: "Nautilus";
+  text-align: center;
+}
+
+.last-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.last-content p {
+  font-weight: bold;
+  font-size: 1.5rem;
+}

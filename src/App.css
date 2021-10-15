@@ -34,6 +34,10 @@ p {
   padding: 0;
 }
 
+audio {
+  display: none;
+}
+
 /* Utility Classes */
 
 .text {
