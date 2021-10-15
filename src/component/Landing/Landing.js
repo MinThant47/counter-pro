@@ -1,4 +1,5 @@
 import "./Landing.css";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import celebrate from "../../Assets/celeberate.svg";
 import cake from "../../Assets/cake.svg";
@@ -10,7 +11,10 @@ import { buttonVariants } from "../../Animation";
 import { containerVariants } from "../../Animation";
 import { motion } from "framer-motion";
 
-const Landing = ({ person }) => {
+const Landing = ({ person, setHappyTime }) => {
+  useEffect(() => {
+    setHappyTime(true);
+  }, [setHappyTime]);
   return (
     <motion.div
       variants={containerVariants}

@@ -9,36 +9,47 @@ import Photo from "./component/Photo/Photo";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import ConfettiModal from "./component/Confetti";
+import Letter from "./component/Letter/Letter";
+import ModalBox from "./component/ModalBox/ModalBox";
 
 function App() {
   const [person, setPerson] = useState([]);
   const location = useLocation();
+  const [happyTime, setHappyTime] = useState(false);
+  const [open, setOpen] = useState(false);
   return (
-    <AnimatePresence exitBeforeEnter initial={false}>
-      <Switch location={location} key={location.key}>
-        <Route exact path="/">
-          <Home />
-        </Route>
+    <>
+      <ModalBox open={open} setOpen={setOpen} />
+      <AnimatePresence exitBeforeEnter initial={false}>
+        {happyTime && <ConfettiModal />}
 
-        <Route path="/counter/:name">
-          <Counter setPerson={setPerson} />
-        </Route>
+        <Switch location={location} key={location.key}>
+          <Route exact path="/">
+            <Home />
+          </Route>
 
-        <Route path="/landing/:name">
-          <ConfettiModal />
-          <Landing person={person} />
-        </Route>
+          <Route path="/counter/:name">
+            <Counter setPerson={setPerson} />
+          </Route>
 
-        <Route path="/photo">
-          <Photo person={person} />
-          <ConfettiModal />
-        </Route>
+          <Route path="/landing/:name">
+            <Landing person={person} setHappyTime={setHappyTime} />
+          </Route>
 
-        <Route path="/*">
-          <NotFoundPage />
-        </Route>
-      </Switch>
-    </AnimatePresence>
+          <Route path="/photo">
+            <Photo person={person} />
+          </Route>
+
+          <Route path="/letter">
+            <Letter person={person} setOpen={setOpen} />
+          </Route>
+
+          <Route path="/*">
+            <NotFoundPage />
+          </Route>
+        </Switch>
+      </AnimatePresence>
+    </>
   );
 }
 

@@ -68,3 +68,17 @@ p {
 .button-back:hover .button--icon {
   color: var(--purple-light);
 }
+
+.button-primary {
+  margin-top: 1rem;
+  font-weight: medium;
+  color: white;
+  padding: 1rem 3rem;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  text-transform: uppercase;
+  background-color: var(--pink-dark);
+  font-size: 1.1rem;
+  font-weight: 600;
+}

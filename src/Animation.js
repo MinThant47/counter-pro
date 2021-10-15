@@ -32,17 +32,17 @@ export const containerVariants = {
     x: 0,
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.3,
       type: "spring",
       ease: "easeInOut",
       stiffness: 120,
     },
-    exit: {
-      x: "-100vw",
-      scale: 0,
-      transition: {
-        duration: 0.6,
-      },
+  },
+  exit: {
+    x: "-100vw",
+    scale: 0,
+    transition: {
+      duration: 0.6,
     },
   },
 };
@@ -74,7 +74,7 @@ export const textVariants = {
 
 export const buttonVariants = {
   hidden: {
-    scale: 0,
+    opacity: 0,
   },
   visible: {
     scale: [1, 1.1],
@@ -82,8 +82,11 @@ export const buttonVariants = {
     transition: {
       delay: 0.5,
       duration: 0.3,
-      yoyo: Infinity,
       ease: "easeInOut",
+      scale: {
+        duration: 0.3,
+        yoyo: Infinity,
+      },
     },
   },
   exit: {
@@ -111,6 +114,39 @@ export const buttonHoverVariants = {
     scale: 0,
     transition: {
       duration: 0.6,
+    },
+  },
+};
+
+export const backdropVariants = {
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
+
+export const modalVariants = {
+  hidden: {
+    y: "-100vh",
+    opacity: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      type: "spring",
     },
   },
 };

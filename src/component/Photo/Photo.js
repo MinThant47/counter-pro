@@ -2,7 +2,12 @@ import "./Photo.css";
 import { HiArrowSmRight } from "react-icons/hi";
 import { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { buttonHoverVariants } from "../../Animation";
+import {
+  buttonHoverVariants,
+  containerVariants,
+  imageVariants,
+  textVariants,
+} from "../../Animation";
 import { motion } from "framer-motion";
 
 const Photo = ({ person }) => {
@@ -43,23 +48,35 @@ const Photo = ({ person }) => {
   }, [num]);
 
   return (
-    <div className="photo">
+    <motion.div
+      className="photo"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       {person && (
         <>
           {num >= 0 && num <= 3 ? (
             <>
-              <img
+              <motion.img
+                variants={imageVariants}
                 src={person[0].fields.birthdayPhoto[num].fields.file.url}
                 alt=""
                 className="bd-photo"
               />
-              <div className="photo-content">
-                <p>{person[0].fields.birthdayPhoto[num].fields.title}</p>
+              <motion.div
+                variants={containerVariants}
+                className="photo-content"
+              >
+                <p variants={textVariants}>
+                  {person[0].fields.birthdayPhoto[num].fields.title}
+                </p>
                 <div className="photo-button">
                   {/* New Page သွားဖို့ */}
 
                   {front ? (
-                    <Link to="/">
+                    <Link to="/letter">
                       <motion.button
                         variants={buttonHoverVariants}
                         whileHover="hover"
@@ -103,16 +120,20 @@ const Photo = ({ person }) => {
                     </button>
                   )}
                 </div>
-              </div>
+              </motion.div>
             </>
           ) : (
             <>
-              <img
+              <motion.img
+                variants={imageVariants}
                 src={person[0].fields.birthdayPhoto[0].fields.file.url}
                 alt=""
                 className="bd-photo"
               />
-              <div className="photo-content">
+              <motion.div
+                variants={containerVariants}
+                className="photo-content"
+              >
                 <p>{person[0].fields.birthdayPhoto[0].fields.title}</p>
                 <div className="photo-button">
                   <button className="text-uppercase me-4 button-primary">
@@ -122,12 +143,12 @@ const Photo = ({ person }) => {
                     Back <HiArrowSmRight />
                   </button>
                 </div>
-              </div>
+              </motion.div>
             </>
           )}
         </>
       )}
-    </div>
+    </motion.div>
   );
 };
 
