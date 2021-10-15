@@ -23,7 +23,7 @@ const ModalBox = ({ open, setOpen }) => {
         >
           <motion.div variants={modalVariants} className="modalBox">
             <FaTimes className="close-icon" onClick={() => setOpen(false)} />
-            <img src={cakeIcon} className="letter-icon" alt="cake icon" />
+            <img src={cakeIcon} className="modal-svg" alt="cake icon" />
             <p className="text">
               Birthday Wish ဖတ်ပြီးတာ <strong> သေချာပြီလား </strong>
             </p>

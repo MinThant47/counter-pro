@@ -8,7 +8,13 @@
   z-index: 1;
 }
 
+.modal-svg {
+  height: 80px;
+}
+
 .modalBox {
+  text-align: center;
+  padding: 2rem;
   position: relative;
   margin: 100px auto;
   background-color: white;
@@ -40,4 +46,26 @@
   top: 40px;
   right: 40px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+  .modal-svg {
+    height: 50px;
+  }
+  .modalBox {
+    padding: 2rem;
+    width: 85%;
+    height: 60%;
+  }
+  .close-icon {
+    top: 25px;
+    right: 25px;
+  }
+  .modalBox p {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .modalBox .button-primary {
+    font-size: 1rem;
+  }
 }
