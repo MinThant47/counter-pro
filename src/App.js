@@ -30,11 +30,11 @@ function App() {
 
       setTimeout(function () {
         crowdRef2.current.play();
-      }, 2000);
+      }, 3000);
 
       setTimeout(function () {
         bdRef.current.play();
-      }, 2000);
+      }, 3000);
     }
   }, [happyTime]);
 

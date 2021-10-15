@@ -70,14 +70,14 @@
 }
 
 .bd-people a {
-  background-color: transparent;
-  color: var(--purple-light);
+  background-color: var(--purple-light);
+  color: white;
   transition: all 0.3s;
 }
 
 .bd-people a:hover {
-  color: white;
-  background-color: var(--purple-light);
+  background-color: transparent;
+  color: var(--purple-light);
 }
 
 @media only screen and(max-width: 760px) {

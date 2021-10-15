@@ -1,5 +1,5 @@
 import "./Letter.css";
-import letter from "../../Assets/bd letter.jpg";
+import letter from "../../Assets/bd letter.svg";
 import { motion } from "framer-motion";
 import {
   buttonHoverVariants,

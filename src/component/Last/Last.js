@@ -31,7 +31,7 @@ const Last = ({ person }) => {
               Happy
             </motion.h1>
             <motion.h1 variants={containerVariants} id="birthdayWord">
-              Birthday
+              Birthday to you!
             </motion.h1>
             <motion.p
               variants={containerVariants}

@@ -73,3 +73,52 @@
   right: 0;
   height: 200px;
 }
+
+@media only screen and (max-width: 1000px) {
+  #cake {
+    height: 350px;
+  }
+  #gift {
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  #cake {
+    height: 250px;
+  }
+  #gift {
+    height: 150px;
+  }
+  #celebrate {
+    height: 80px;
+  }
+  #triangle {
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #nickname {
+    font-size: 3rem;
+  }
+
+  #years {
+    font-size: 3rem;
+  }
+
+  #birthday {
+    font-size: 4rem;
+  }
+
+  #triangle {
+    height: 100px;
+  }
+
+  #cake {
+    height: 200px;
+  }
+  #gift {
+    height: 100px;
+  }
+}
