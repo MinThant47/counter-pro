@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import celebrate from "../../Assets/celeberate.svg";
 import cake from "../../Assets/cake.svg";
 import triangle from "../../Assets/triangle shape.svg";
+import bdLetter from "../../Assets/bd letter.svg";
 import gift from "../../Assets/gift.svg";
 import { imageVariants } from "../../Animation";
 import { textVariants } from "../../Animation";
@@ -25,6 +26,13 @@ const Landing = ({ person, setHappyTime }) => {
     >
       {person && (
         <>
+          <div className="hide">
+            <img src={person[0].fields.lastPhoto} alt="" />
+            <img src={bdLetter} alt="" />
+            {person[0].fields.birthdayPhoto.map((bd) => {
+              return <img src={bd.fields.file.url} alt="" />;
+            })}
+          </div>
           <div className="landing-content">
             <motion.h1 variants={textVariants} id="nickname">
               {person[0].fields.nickname} 's

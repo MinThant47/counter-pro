@@ -1,6 +1,7 @@
-@font-face {
-  font-family: "Nautilus"; /*a name to be used later*/
-  src: url("../../Assets/Nautilus.otf"); /*URL to font*/
+/* Img တွေကို Download ပြီးသားဖြစ်စေချင်လို့ */
+.hide {
+  display: none;
+  pointer-events: none;
 }
 
 .landing {
