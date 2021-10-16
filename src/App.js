@@ -14,6 +14,7 @@ import ModalBox from "./component/ModalBox/ModalBox";
 import Last from "./component/Last/Last";
 import birthdaySong from "./Assets/birthday song.mp3";
 import crowd from "./Assets/crowd saying hb.mp3";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   const [person, setPerson] = useState([]);
@@ -40,6 +41,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       {happyTime && (
         <>
           <audio ref={bdRef}>
