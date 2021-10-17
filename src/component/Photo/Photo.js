@@ -18,10 +18,12 @@ const Photo = ({ person }) => {
   const history = useHistory();
 
   const checkMore = () => {
-    if (num < 3) {
-      setNum((num) => num + 1);
-    } else {
-      setNum((num) => num);
+    if (person.length !== 0) {
+      if (num < person[0].fields.birthdayPhoto.length - 1) {
+        setNum((num) => num + 1);
+      } else {
+        setNum((num) => num);
+      }
     }
   };
 
@@ -34,18 +36,20 @@ const Photo = ({ person }) => {
   };
 
   useEffect(() => {
-    if (num === 0) {
-      setBack(true);
-    } else {
-      setBack(false);
-    }
+    if (person.length !== 0) {
+      if (num === 0) {
+        setBack(true);
+      } else {
+        setBack(false);
+      }
 
-    if (num === 3) {
-      setFront(true);
-    } else {
-      setFront(false);
+      if (num === person[0].fields.birthdayPhoto.length - 1) {
+        setFront(true);
+      } else {
+        setFront(false);
+      }
     }
-  }, [num]);
+  }, [num, person]);
 
   return (
     <motion.div
@@ -57,7 +61,7 @@ const Photo = ({ person }) => {
     >
       {person.length !== 0 && (
         <>
-          {num >= 0 && num <= 3 ? (
+          {num >= 0 && num <= person[0].fields.birthdayPhoto.length - 1 ? (
             <>
               <motion.img
                 variants={imageVariants}
