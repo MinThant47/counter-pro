@@ -142,25 +142,20 @@ const Counter = ({ setPerson }) => {
         const m = Math.floor((gap % hour) / minute);
         const s = Math.floor((gap % minute) / second);
 
-        setDay(d);
-        setHour(h);
-        setMinute(m);
-        setSecond(s);
-
-        if (
-          finalday === 0 &&
-          finalhour === 0 &&
-          finalminute === 0 &&
-          finalsecond === 0
-        ) {
-          stopCounter();
+        if (gap <= 0) {
           setOpen(true);
+          stopCounter();
+        } else {
+          setDay(d);
+          setHour(h);
+          setMinute(m);
+          setSecond(s);
         }
       };
 
-      var birthdayCounter = setInterval(function () {
+      const birthdayCounter = setInterval(function () {
         birthday();
-      });
+      }, 1000);
 
       const stopCounter = () => {
         clearInterval(birthdayCounter);
