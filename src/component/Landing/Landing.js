@@ -24,7 +24,7 @@ const Landing = ({ person, setHappyTime }) => {
       exit="exit"
       className="landing"
     >
-      {person && (
+      {person.length !== 0 && (
         <>
           <div className="hide">
             <img src={person[0].fields.lastPhoto} alt="" />

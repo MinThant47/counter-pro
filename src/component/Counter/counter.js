@@ -251,7 +251,7 @@ const Counter = ({ setPerson }) => {
           အချိန်ပြည့်သွားရင် ပြန်လာခဲ့နော်။ ဒီက စောင့်နေမယ်
         </p>
 
-        <div className={`congra ${!open ? "open" : ""}`}>
+        <div className={`congra ${open ? "open" : ""}`}>
           {people.length !== 0 && (
             <>
               <HiArrowSmRight className="counter-icons text-white" />

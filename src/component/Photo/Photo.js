@@ -55,7 +55,7 @@ const Photo = ({ person }) => {
       animate="visible"
       exit="exit"
     >
-      {person && (
+      {person.length !== 0 && (
         <>
           {num >= 0 && num <= 3 ? (
             <>
