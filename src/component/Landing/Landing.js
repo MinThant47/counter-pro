@@ -30,7 +30,7 @@ const Landing = ({ person, setHappyTime }) => {
             <img src={person[0].fields.lastPhoto} alt="" />
             <img src={bdLetter} alt="" />
             {person[0].fields.birthdayPhoto.map((bd) => {
-              return <img src={bd.fields.file.url} alt="" />;
+              return <img key={bd.sys.id} src={bd.fields.file.url} alt="" />;
             })}
           </div>
           <div className="landing-content">
