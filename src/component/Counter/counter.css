@@ -66,14 +66,13 @@
 
 .timer {
   margin: 2rem 0;
-  padding: 2rem 0;
+  padding: 2rem 10rem;
   background-color: var(--purple-dark);
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
-  gap: 10rem;
-  line-height: 1.5;
-  flex-wrap: wrap;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .timer h1,
@@ -96,7 +95,7 @@
 
 @media screen and (max-width: 900px) {
   .timer {
-    gap: 5rem;
+    gap: 3rem;
   }
 }
 
@@ -111,6 +110,10 @@
 }
 
 @media screen and (max-width: 360px) {
+  .timer {
+    padding: 2rem 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
   .counter h1 {
     font-size: 1.2rem;
   }
